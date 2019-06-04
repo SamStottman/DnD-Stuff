@@ -1,0 +1,2041 @@
+
+from __future__ import print_function
+import random
+
+
+max_h = 5
+min_h = 3
+h = random.randint(min_h, max_h)
+floor = 0
+function = 1
+
+while (function != 0):
+    print()
+    function = input("What is your function \n0: End \n1: Room \n2: Hallway \n3: Loot \n4: Boss \n5: Quirk \n7: Hunger Check \n8: Fight\n9: Die Roller\n")
+    print()
+    #hallway length
+    h = random.randint(min_h, max_h)
+
+    #room generator                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        a
+    if function == 1:
+        level = 1
+        area = input("What area are you in?\n1:Ruins\n2:Weald\n3:Warrens\n4:Cove\n")
+        #number of exits
+        exits = random.randint(0, 100)
+        if exits <= 15:
+            exits = "no exits"
+        if exits > 15 and exits <= 50:
+            exits = "1 exit"
+        if exits > 50 and exits <= 85:
+            exits = "2 exits"
+        if exits > 85 and exits <= 100:
+            exits = "3 exits"
+        
+        #room type
+        rt = random.randint(0,99)
+        rdesc = "null"
+        if rt < 15:
+            shop = random.randint(0,3)
+            if shop == 0:
+                rdesc = "potion shop"
+            if shop == 1:
+                rdesc = "weapon shop"
+            if shop == 2:
+                rdesc = "armor shop"
+            if shop == 3:
+                rdesc = "general store"
+        if rt >= 15 and rt < 100:
+            if area == 1:
+                ctype = random.randint(0,17)
+                if ctype == 0:
+                    rdesc = "Crate- 1 loot roll"
+                if ctype == 1:
+                    rdesc = "Pack- 1 loot roll"
+                if ctype == 2:
+                    rdesc = "Eldritch Alter. Clense:Holy Water- Quirk Removed. Without:+6 Stress"
+                if ctype == 3:
+                    rdesc = "Locked Chest. Clense:Key- 2 loot roll. Without:50% 1 loot roll, 50% 1d6 damage without"
+                if ctype == 4:
+                    rdesc = "Scone- 1 torch"
+                if ctype == 5:
+                    rdesc = "Stack of Books. Clense:Torch- +10 stress. Without:50% +4 stress, 50% Quirk"
+                if ctype == 6:
+                    rdesc = "Unlocked Strongbox- 75% 2 loot rolls, 25% 1d6 poison dmg DC 15 CON save or poisoned"
+                if ctype == 7:
+                    rdesc = "Alchemy Table. Clense:Herbs- 2 loot rolls. Without:50% 1d6 poison dmg DC 15 CON save or poisoned, 50% 1 loot roll"
+                if ctype == 8:
+                    rdesc = "Alter of Light. Clense:Holy Water- Extra 1d6 on damage until SR. Without: Extra 1d4 on damage until SR"
+                if ctype == 9:
+                    rdesc = "Bookshelf- 50% +4 Stress, 50% Quirk"
+                if ctype == 10:
+                    rdesc = "Confession Booth. Clense:Holy Water- -5 Stress. Without:50% +4 Stress, 50% 2 loot rolls"
+                if ctype == 11:
+                    rdesc = "Urn. Clense: Holy Water- 2 loot rolls, Shovel- Quirk. Without: 50% 1 loot roll, 25% poison DC 15, 25% Disease"
+                if ctype == 12:
+                    rdesc = "Holy Fountain. Clense:Holy Water- -8 Stress. Without: 50% -4 Stress, 50% 2 loot rolls"
+                if ctype == 13:
+                    rdesc = "Iron Maiden. Clense:Herbs- 2 loot rolls. Without: 50% 1 loot roll, 50% Disease"
+                if ctype == 14:
+                    rdesc = "Locked Display Cabinet. Clense:Key- 3 Loot rolls,Shovel- 2 loot rolls. Without: Poison"
+                if ctype == 15:
+                    rdesc = "Locked Sarcophagus. Clense:Key- 2 Loot Rolls,Shovel- 1 loot roll. Without Poison"
+                if ctype == 16:
+                    rdesc = "Saracophagus- 75% 2 loot rolls, 25% Quirk"
+                if ctype == 17:
+                    rdesc = "Suit of Armor- 75% +2 AC until SR, 25%  Quirk"
+            if area == 2:
+                ctype = random.randint(0,15)
+                if ctype == 0:
+                    rdesc = "Crate- 1 loot roll"
+                if ctype == 1:
+                    rdesc = "Pack- 1 loot roll"
+                if ctype == 2:
+                    rdesc = "Eldritch Alter. Clense:Holy Water- Quirk Removed. Without:+6 Stress"
+                if ctype == 3:
+                    rdesc = "Locked Chest. Clense:Key- 2 loot roll. Without:50% 1 loot roll, 50% 1d6 damage without"
+                if ctype == 4:
+                    rdesc = "Scone- 1 torch"
+                if ctype == 5:
+                    rdesc = "Stack of Books. Clense:Torch- +10 stress. Without:50% +4 stress, 50% Quirk"
+                if ctype == 6:
+                    rdesc = "Unlocked Strongbox- 75% 2 loot rolls, 25% 1d6 poison dmg DC 15 CON save or poisoned"
+                if ctype == 7:
+                    rdesc = "Bone Alter- Extra +2 ATK & DMG rolls until SR"
+                if ctype == 8:
+                    rdesc = "Dinner Cart. Clense:Herbs- 3 Rations and 1 loot roll. Without:50% 1 ration 1 loot roll,50% Disease"
+                if ctype == 9:
+                    rdesc = "Stone Dining Table. Clense:Herbs- 2 Rations and 1 loot roll. Without:25% 1 ration 1 loot roll, 75% Disease and Poison"
+                if ctype == 10:
+                    rdesc = "Moonshine Barrel. Clense:Herbs- +1 DMG until SR. Without:50% 1 loot roll,50% Poison"
+                if ctype == 11:
+                    rdesc = "Occult Scrawlings. Clense:Holy Water- -1 AC until SR. Without:50%Quirk, 50% +8 Stress"
+                if ctype == 12:
+                    rdesc = "Pile of Bones. Clense:Holy Water- 2 loot rolls. Without:25% 2 loot rolls,25% Disease,50% Quirk"
+                if ctype == 13:
+                    rdesc = "Pile of Scrolls. Clense:Torch- Purge Quirk. Without:50% +6 stress, 50% Quirk"
+                if ctype == 14:
+                    rdesc = "Rack of Blades. Clense:Bandages- 2 loot rolls. Without:50% 1 loot roll,50% Bleed DMG"
+                if ctype == 15:
+                    rdesc = "Sacrificial Stone- 50% +8 Stress, 50% Remove Quirk"
+            if area == 3:
+                ctype = random.randint(0,16)
+                if ctype == 0:
+                    rdesc = "Crate- 1 loot roll"
+                if ctype == 1:
+                    rdesc = "Pack- 1 loot roll"
+                if ctype == 2:
+                    rdesc = "Eldritch Alter. Clense:Holy Water- Quirk Removed. Without:+6 Stress"
+                if ctype == 3:
+                    rdesc = "Locked Chest. Clense:Key- 2 loot roll. Without:50% 1 loot roll, 50% 1d6 damage without"
+                if ctype == 4:
+                    rdesc = "Scone- 1 torch"
+                if ctype == 5:
+                    rdesc = "Stack of Books. Clense:Torch- +10 stress. Without:50% +4 stress, 50% Quirk"
+                if ctype == 6:
+                    rdesc = "Unlocked Strongbox- 75% 2 loot rolls, 25% 1d6 poison dmg DC 15 CON save or poisoned"
+                if ctype == 7:
+                    rdesc = "Ancient Coffin- 50% 2 loot rolls, 50% Quirk"
+                if ctype == 8:
+                    rdesc = "Beast Carcass. Clense:Herbs- 2 rations. Without:50% 1 ration, 25% Disease, 25% Quirk"
+                if ctype == 9:
+                    rdesc = "Spiderweb. Clense:Bandages- 2 loot rolls. Without:50% 1 loot roll, 50% Quirk"
+                if ctype == 10:
+                    rdesc = "Left Luggage. Clense:Key/Antivenom- 3 loot rolls. Without:50% 4 loot rolls, 50% Poison"
+                if ctype == 11:
+                    rdesc = "Mummified Remains. Clense:Bandages- 2 loot rolls. Without:50% 1 loot roll,50% Poison"
+                if ctype == 12:
+                    rdesc = "Old Tree. Clense:Antivenom- 3 loot rolls. Without:50% 2 loot rolls, 25% Poison, 25% Nothing"
+                if ctype == 13:
+                    rdesc = "Pristine Fountain. Clense:Holy Water- -6 Stress. Without: -4 Stress"
+                if ctype == 14:
+                    rdesc = "Shallow Grave. Clense:Shovel- 3 loot rolls. Without: 50% Poison, 50% Disease"
+                if ctype == 15:
+                    rdesc = "Old Tent- 50% 3 loot, 50% +6 Stress"
+                if ctype == 16:
+                    rdesc = "Troubling Effigy. Clense:Holy Water- Quirk. Without:50% Quirk,25%Poison,25% +6 Stress"
+            if area == 4:
+                ctype = random.randint(0,14)
+                if ctype == 0:
+                    rdesc = "Crate- 1 loot roll"
+                if ctype == 1:
+                    rdesc = "Pack- 1 loot roll"
+                if ctype == 2:
+                    rdesc = "Eldritch Alter. Clense:Holy Water- Quirk Removed. Without:+6 Stress"
+                if ctype == 3:
+                    rdesc = "Locked Chest. Clense:Key- 2 loot roll. Without:50% 1 loot roll, 50% 1d6 damage without"
+                if ctype == 4:
+                    rdesc = "Scone- 1 torch"
+                if ctype == 5:
+                    rdesc = "Stack of Books. Clense:Torch- +10 stress. Without:50% +4 stress, 50% Quirk"
+                if ctype == 6:
+                    rdesc = "Unlocked Strongbox- 75% 2 loot rolls, 25% 1d6 poison dmg DC 15 CON save or poisoned"
+                if ctype == 0:
+                    rdesc = "Barnacle Crusted Chest. Clense:Shovel- 3 loot rools. Without:50% 2 loot rolls, 25% bleed,25% Nothing"
+                if ctype == 8:
+                    rdesc = "Carved Stone. Clense:Shovel- +10 Stress. Without:50% Quirk, 50% Disease"
+                if ctype == 9:
+                    rdesc = "Brakish Tide Pool. Clense:Antivenom- -4 Stress. Without:75% Poison & Bleed Resist until SR, 25% Disease"
+                if ctype == 10:
+                    rdesc = "Eerie Coral. Clense:Herbs- Purge Quirk. Without:50% -4 Stress, 25% +6 Stress, 25% Nothing"
+                if ctype == 11:
+                    rdesc = "Fish Idol. Clense:Holy Water- +2 DMG rolls until SR. Without: -1 ATK & DMG rolls until SR"
+                if ctype == 12:
+                    rdesc = "Fish Carcass. Clense:Herbs- 2 loot rolls. Without:25% 1 loot roll,25% Disease,25% Poison,25% Nothing"
+                if ctype == 13:
+                    rdesc = "Giant Oyster. Clense:Shovel- 3 loot rolls. Without:50% 2 loot rolls, 50% Bleed"
+                if ctype == 14:
+                    rdesc = "Ship's Figurehead- 75% -6 Stress, 25% +1 DMG rolls +2 Initative"
+
+        rloop = 1
+        aa = 1
+        bb = 1
+        while rloop == 1:
+            a = random.randint(0, 16)
+            b = random.randint(1, 17)
+
+            #fight room attributes
+            if a == 0:
+                aa = "Flat surface"
+            if a == 1:
+                aa = "Floor on opposite end is raised 15ft"
+            if a == 2:
+                aa = "Center trench from left to right dropped into void"
+            if a == 3:
+                aa = "The sides of the room are raised 15ft"
+            if a == 4:
+                aa = "There is a large circular 20ft radius endless pit in the center of the room"
+            if a == 5:
+                aa = "There is a 10ft wide stone floor from end to end with the rest a bottemless pit"
+            if a == 6:
+                aa = "The room is filled with water up to the level of the doors"
+            if a == 7:
+                aa = "There is a very fast stream 15ft wide in the center of the room from left to right"
+            if a == 8:
+                aa = "There are large stone pillars scattered around the room"
+            if a == 9:
+                aa = "All water in the room is replaced with lava, if no water exists then the room gains some feature of lava"
+            if a == 10:
+                aa = "The floor is made of slippery ice"
+            if a == 11:
+                aa = "All the other doors in the room besides the entrance door are raised up 40ft up the wall"
+            if a == 12:
+                aa = "Standing in the same 5x5ft square for more than one turn causes it to drop out from underneath you"
+            if a == 13:
+                aa = "The room is circular and spins"
+            if a == 14:
+                aa = "10x10ft sections of the floor raise up to the ceiling after one turn of being stood on and then come back down the next round"
+            if a == 15:
+                aa = "The left and right walls move 5ft towards the center of the room every round"
+            if a == 16:
+                aa = "The ceiling moves 5ft towards the floor every round"
+
+            
+            if b == 1:
+                bb = "All water in the room is replaced with lava, if no water exists then the room gains some feature of lava"
+            if b == 2:
+                bb = "The floor is made of slippery ice"
+            if b == 3:
+                bb = "All the other doors in the room besides the entrance door are raised up 40ft up the wall"
+            if b == 4:
+                bb = "Standing in the same 5x5ft square for more than one turn causes it to drop out from underneath you"
+            if b == 5:
+                bb = "The room is circular and spins"
+            if b == 6:
+                bb = "10x10ft sections of the floor raise up to the ceiling after one turn of being stood on and then come back down the next round"
+            if b == 7:
+                bb = "The left and right walls move 5ft towards the center of the room every round"
+            if b == 8:
+                bb = "The ceiling moves 5ft towards the floor every round"
+            if b == 9:
+                bb = "Flat surface"
+            if b == 10:
+                bb = "Floor on opposite end is raised 15ft"
+            if b == 11:
+                bb = "Center trench from left to right dropped into void"
+            if b == 12:
+                bb = "The sides of the room are raised 15ft"
+            if b == 13:
+                bb = "There is a large circular 20ft radius endless pit in the center of the room"
+            if b == 14:
+                bb = "There is a 10ft wide stone floor from end to end with the rest a bottemless pit"
+            if b == 15:
+                bb = "The room is filled with water up to the level of the doors"
+            if b == 16:
+                bb = "There is a very fast stream 15ft wide in the center of the room from left to right"
+            if b == 17:
+                bb = "There are large stone pillars scattered around the room"
+
+            if aa == bb:
+                rloop = 1
+            if aa != bb:
+                rloop = 0
+
+        #fight level
+        ifboss = random.randint(0,99)
+        if ifboss < 15:
+            fight = "Boss Fight"
+        if ifboss >= 15 and ifboss < 100:
+            if level == 1:
+                f = random.randint(0, 100)
+                if f <= 50:
+                    fight = "Random medium level 4 fight"
+                if f > 50 and f <= 85:
+                    fight = "Random hard level 4 fight"
+                if f > 85 and f <= 100:
+                    fight = "Random deadly level 4 fight"
+            if level == 2:
+                f = random.randint(0, 100)
+                if f <= 50:
+                    fight = "Random medium level 6 fight"
+                if f > 50 and f <= 85:
+                    fight = "Random hard level 6 fight"
+                if f > 85 and f <= 100:
+                    fight = "Random deadly level 6 fight"
+            if level == 3:
+                f = random.randint(0, 100)
+                if f <= 50:
+                    fight = "Random medium level 8 fight"
+                if f > 50 and f <= 85:
+                    fight = "Random hard level 8 fight"
+                if f > 85 and f <= 100:
+                    fight = "Random deadly level 8 fight"
+            if level == 4:
+                f = random.randint(0, 100)
+                if f <= 50:
+                    fight = "Random medium level 10 fight"
+                if f > 50 and f <= 85:
+                    fight = "Random hard level 10 fight"
+                if f > 85 and f <= 100:
+                    fight = "Random deadly level 10 fight"
+
+        #room theme
+        theme = random.randint(0, 5)
+        if a == 6:
+            theme = 0
+        if theme == 0:
+            theme = "Cove"
+            aa = "The room is filled with water up to the level of the doors"
+        if theme == 1:
+            theme = "None"
+        if theme == 2:
+            theme = "Ruins"
+        if theme == 3:
+            theme = "Warrens"
+        if theme == 4:
+            theme = "Weald"
+
+   
+        print()
+        
+        print (rdesc)
+        print (exits)
+        print (aa)
+        print (bb)
+        print (theme)
+        if rt >= 45 and rt < 100:
+            if ifboss < 15:
+                print (fight)
+            sup = random.randint(0,99)
+            if sup < 15:
+                sup = "Enemy"
+            if sup >=15 and sup < 90:
+                sup = "None"
+            if sup >= 90 and sup < 100:
+                sup = "Players"
+            print("Fight\nSUPRISED:" + sup)
+            print (theme)
+            print ()
+        print()
+
+    #hallway generator
+    if function == 2:
+        area = input("What area are you in?\n1:Ruins\n2:Warrens\n3:Weald\n4:Cove\n")
+        print()
+        while h > 0:
+            n = random.randint(0, 99)
+            if n < 2:
+                seg = 1
+            if n >= 2 and n < 10:
+                seg = 2
+            if n >= 10 and n < 35:
+                seg = 3
+            if n >= 35 and n <40 :
+                seg = 4
+            if n >= 40:
+                seg = 5
+                
+            if seg == 1:
+                print('Fight')
+            if seg == 2:
+                print("Trap")
+            if seg == 3:
+                if area == 1:
+                    ctype = random.randint(0,17)
+                    if ctype == 0:
+                        print("Crate- 1 loot roll")
+                    if ctype == 1:
+                        print("Pack- 1 loot roll")
+                    if ctype == 2:
+                        print("Eldritch Alter. Clense:Holy Water- Quirk Removed. Without:+6 Stress")
+                    if ctype == 3:
+                        print("Locked Chest. Clense:Key- 2 loot roll. Without:50% 1 loot roll, 50% 1d6 damage without")
+                    if ctype == 4:
+                        print("Scone- 1 torch")
+                    if ctype == 5:
+                        print("Stack of Books. Clense:Torch- +10 stress. Without:50% +4 stress, 50% Quirk")
+                    if ctype == 6:
+                        print("Unlocked Strongbox- 75% 2 loot rolls, 25% 1d6 poison dmg DC 15 CON save or poisoned")
+                    if ctype == 7:
+                        print("Alchemy Table. Clense:Herbs- 2 loot rolls. Without:50% 1d6 poison dmg DC 15 CON save or poisoned, 50% 1 loot roll")
+                    if ctype == 8:
+                        print("Alter of Light. Clense:Holy Water- Extra 1d6 on damage until SR. Without: Extra 1d4 on damage until SR")
+                    if ctype == 9:
+                        print("Bookshelf- 50% +4 Stress, 50% Quirk")
+                    if ctype == 10:
+                        print("Confession Booth. Clense:Holy Water- -5 Stress. Without:50% +4 Stress, 50% 2 loot rolls")
+                    if ctype == 11:
+                        print("Urn. Clense: Holy Water- 2 loot rolls, Shovel- Quirk. Without: 50% 1 loot roll, 25% poison DC 15, 25% Disease")
+                    if ctype == 12:
+                        print("Holy Fountain. Clense:Holy Water- -8 Stress. Without: 50% -4 Stress, 50% 2 loot rolls")
+                    if ctype == 13:
+                        print("Iron Maiden. Clense:Herbs- 2 loot rolls. Without: 50% 1 loot roll, 50% Disease")
+                    if ctype == 14:
+                        print("Locked Display Cabinet. Clense:Key- 3 Loot rolls,Shovel- 2 loot rolls. Without: Poison")
+                    if ctype == 15:
+                        print("Locked Sarcophagus. Clense:Key- 2 Loot Rolls,Shovel- 1 loot roll. Without Poison")
+                    if ctype == 16:
+                        print("Saracophagus- 75% 2 loot rolls, 25% Quirk")
+                    if ctype == 17:
+                        print("Suit of Armor- 75% +2 AC until SR, 25%  Quirk")
+                if area == 2:
+                    ctype = random.randint(0,15)
+                    if ctype == 0:
+                        print("Crate- 1 loot roll")
+                    if ctype == 1:
+                        print("Pack- 1 loot roll")
+                    if ctype == 2:
+                        print("Eldritch Alter. Clense:Holy Water- Quirk Removed. Without:+6 Stress")
+                    if ctype == 3:
+                        print("Locked Chest. Clense:Key- 2 loot roll. Without:50% 1 loot roll, 50% 1d6 damage without")
+                    if ctype == 4:
+                        print("Scone- 1 torch")
+                    if ctype == 5:
+                        print("Stack of Books. Clense:Torch- +10 stress. Without:50% +4 stress, 50% Quirk")
+                    if ctype == 6:
+                        print("Unlocked Strongbox- 75% 2 loot rolls, 25% 1d6 poison dmg DC 15 CON save or poisoned")
+                    if ctype == 7:
+                        print("Bone Alter- Extra +2 ATK & DMG rolls until SR")
+                    if ctype == 8:
+                        print("Dinner Cart. Clense:Herbs- 3 Rations and 1 loot roll. Without:50% 1 ration 1 loot roll,50% Disease")
+                    if ctype == 9:
+                        print("Stone Dining Table. Clense:Herbs- 2 Rations and 1 loot roll. Without:25% 1 ration 1 loot roll, 75% Disease and Poison")
+                    if ctype == 10:
+                        print("Moonshine Barrel. Clense:Herbs- +1 DMG until SR. Without:50% 1 loot roll,50% Poison")
+                    if ctype == 11:
+                        print("Occult Scrawlings. Clense:Holy Water- -1 AC until SR. Without:50%Quirk, 50% +8 Stress")
+                    if ctype == 12:
+                        print("Pile of Bones. Clense:Holy Water- 2 loot rolls. Without:25% 2 loot rolls,25% Disease,50% Quirk")
+                    if ctype == 13:
+                        print("Pile of Scrolls. Clense:Torch- Purge Quirk. Without:50% +6 stress, 50% Quirk")
+                    if ctype == 14:
+                        print("Rack of Blades. Clense:Bandages- 2 loot rolls. Without:50% 1 loot roll,50% Bleed DMG")
+                    if ctype == 15:
+                        print("Sacrificial Stone- 50% +8 Stress, 50% Remove Quirk")
+                if area == 3:
+                    ctype = random.randint(0,16)
+                    if ctype == 0:
+                        print("Crate- 1 loot roll")
+                    if ctype == 1:
+                        print("Pack- 1 loot roll")
+                    if ctype == 2:
+                        print("Eldritch Alter. Clense:Holy Water- Negative Quirk Removed. Without:+6 Stress")
+                    if ctype == 3:
+                        print("Locked Chest. Clense:Key- 2 loot roll. Without:50% 1 loot roll, 50% 1d6 damage without")
+                    if ctype == 4:
+                        print("Scone- 1 torch")
+                    if ctype == 5:
+                        print("Stack of Books. Clense:Torch- +10 stress. Without:50% +4 stress, 50% Quirk")
+                    if ctype == 6:
+                        print("Unlocked Strongbox- 75% 2 loot rolls, 25% 1d6 poison dmg DC 15 CON save or poisoned")
+                    if ctype == 7:
+                        print("Ancient Coffin- 50% 2 loot rolls, 50% Quirk")
+                    if ctype == 8:
+                        print("Beast Carcass. Clense:Herbs- 2 rations. Without:50% 1 ration, 25% Disease, 25% Quirk")
+                    if ctype == 9:
+                        print("Spiderweb. Clense:Bandages- 2 loot rolls. Without:50% 1 loot roll, 50% Quirk")
+                    if ctype == 10:
+                        print("Left Luggage. Clense:Key/Antivenom- 3 loot rolls. Without:50% 4 loot rolls, 50% Poison")
+                    if ctype == 11:
+                        print("Mummified Remains. Clense:Bandages- 2 loot rolls. Without:50% 1 loot roll,50% Poison")
+                    if ctype == 12:
+                        print("Old Tree. Clense:Antivenom- 3 loot rolls. Without:50% 2 loot rolls, 25% Poison, 25% Nothing")
+                    if ctype == 13:
+                        print("Pristine Fountain. Clense:Holy Water- -6 Stress. Without: -4 Stress")
+                    if ctype == 14:
+                        print("Shallow Grave. Clense:Shovel- 3 loot rolls. Without: 50% Poison, 50% Disease")
+                    if ctype == 15:
+                        print("Old Tent- 50% 3 loot, 50% +6 Stress")
+                    if ctype == 16:
+                        print("Troubling Effigy. Clense:Holy Water- Quirk. Without:50% Quirk,25%Poison,25% +6 Stress")
+                if area == 4:
+                    ctype = random.randint(0,14)
+                    if ctype == 0:
+                        print("Crate- 1 loot roll")
+                    if ctype == 1:
+                        print("Pack- 1 loot roll")
+                    if ctype == 2:
+                        print("Eldritch Alter. Clense:Holy Water- Negative Quirk Removed. Without:+6 Stress")
+                    if ctype == 3:
+                        print("Locked Chest. Clense:Key- 2 loot roll. Without:50% 1 loot roll, 50% 1d6 damage without")
+                    if ctype == 4:
+                        print("Scone- 1 torch")
+                    if ctype == 5:
+                        print("Stack of Books. Clense:Torch- +10 stress. Without:50% +4 stress, 50% Quirk")
+                    if ctype == 6:
+                        print("Unlocked Strongbox- 75% 2 loot rolls, 25% 1d6 poison dmg DC 15 CON save or poisoned")
+                    if ctype == 7:
+                        print("Barnacle Crusted Chest. Clense:Shovel- 3 loot rools. Without:50% 2 loot rolls, 25% bleed,25% Nothing")
+                    if ctype == 8:
+                        print("Carved Stone. Clense:Shovel- +10 Stress. Without:50% Quirk, 50% Disease")
+                    if ctype == 9:
+                        print("Brakish Tide Pool. Clense:Antivenom- -4 Stress. Without:75% Poison & Bleed Resist until SR, 25% Disease")
+                    if ctype == 10:
+                        print("Eerie Coral. Clense:Herbs- Purge Quirk. Without:50% -4 Stress, 25% +6 Stress, 25% Nothing")
+                    if ctype == 11:
+                        print("Fish Idol. Clense:Holy Water- +2 DMG rolls until SR. Without: -1 ATK & DMG rolls until SR")
+                    if ctype == 12:
+                        print("Fish Carcass. Clense:Herbs- 2 loot rolls. Without:25% 1 loot roll,25% Disease,25% Poison,25% Nothing")
+                    if ctype == 13:
+                        print("Giant Oyster. Clense:Shovel- 3 loot rolls. Without:50% 2 loot rolls, 50% Bleed")
+                    if ctype == 14:
+                        print("Ship's Figurehead- 75% -6 Stress, 25% +1 DMG rolls +2 Initative")
+                    
+            if seg == 4:
+                print ("Blocker")
+            if seg == 5:
+                print ("Hall")
+            h = h - 1
+        print()
+
+    #treasure generator
+    if function == 3:
+        t = random.randint(0, 100)
+        ifm = random.randint(0,100)
+        if ifm < 20:
+            if t < 10:
+                MH = random.randint(0, 45)
+                if MH <= 11:
+                    wa2 = random.randint(0,17)
+                    if wa2 == 0:
+                        print ("Battleaxe +2")
+                    if wa2 == 1:
+                        print ("Flail +2")
+                    if wa2 == 2:
+                        print ("Glaive +2")
+                    if wa2 == 3:
+                        print ("Greataxe +2")
+                    if wa2 == 4:
+                        print ("Greatsweord +2")
+                    if wa2 == 5:
+                        print ("Greatsword +2")
+                    if wa2 == 6:
+                        print ("Longsword +2")
+                    if wa2 == 7:
+                        print ("Longsword +2")
+                    if wa2 == 8:
+                        print ("Maul +2")
+                    if wa2 == 9:
+                        print ("Rapier +2")
+                    if wa2 == 10:
+                        print ("Saber +2")
+                    if wa2 == 11:
+                        print ("Scimitar +2")
+                    if wa2 == 12:
+                        print ("Shortsword +2")
+                    if wa2 == 13:
+                        print ("Quarterstaff +2")
+                    if wa2 == 14:
+                        print ("Heavy Crossbow +2")
+                    if wa2 == 15:
+                        print ("Hand Crossbow +2")
+                    if wa2 == 16:
+                        print ("Longbow +2")
+                    if wa2 == 17:
+                        print ("Shortbow +2")
+                        
+                if MH >= 12 and MH <= 14:
+                    x = random.randint(1, 8)
+                    if x == 1:
+                        print ("Bronze Griffon Figurine of Wonderous Power")
+                    if x == 2:
+                        print ("Ebony Fly Figurine of Wonderous Power")
+                    if x == 3:
+                        print ("Golden Lion Figurine of Wonderous Power")
+                    if x == 4:
+                        print ("Ivory Goat Figurine of Wonderous Power")
+                    if x == 5:
+                        print ("Marble Elephant Figurine of Wonderous Power")
+                    if x == 6:
+                        print ("Onyx Dog Figurine of Wonderous Power")
+                    if x == 7:
+                        print ("Ruby Owl Figurine of Wonderous Power")
+                    if x == 8:
+                        print ("Emerald Snake Figurine of Wonderous Power")
+                if MH == 15:
+                    print ("Adamantine Breastplate")
+                if MH == 16:
+                    print ("Adamantine Splint Armor")
+                if MH == 17:
+                    print ("Amulet of Health")
+                if MH == 18:
+                    print ("Armor of Vulnerability")
+                if MH == 19:
+                    print ("Arrow-Catching Shield")
+                if MH == 20:
+                    print ("Nelt of Dwarvenkind")
+                if MH == 21:
+                    print ("Belt of hill giant strength")
+                if MH == 22:
+                    print ("Berserker axe")
+                if MH == 23:
+                    print ("Boots of Leitation")
+                if MH == 24:
+                    print ("Boots of Speed")
+                if MH == 25:
+                    print ("Bowl of Commanding Water Elementals")
+                if MH == 26:
+                    print ("Bracers of defense")
+                if MH == 27:
+                    print ("Brazier of Commanding Fire Elementals")
+                if MH == 28:
+                    print ("Cape of the Mountebank")
+                if MH == 29:
+                    print ("censer of Controlling Air Elementals")
+                if MH == 30:
+                    print ("Chain Mail +1")
+                if MH == 31:
+                    print ("Chain Mail of Resistance")
+                if MH == 32:
+                    print ("Chain Shirt of Resistance")
+                if MH == 33:
+                    print ("Chain Shirt +1")
+                if MH == 34:
+                    print ("Cloak of Displacement")
+                if MH == 35:
+                    print ("Cloak of the Bat")
+                if MH == 36:
+                    print ("Leather Armor +1")
+                if MH == 37:
+                    print ("Mace of Terror")
+                if MH == 38:
+                    print ("RIng of Evasion")
+                if MH == 39:
+                    print ("Ring of Feather Falling")
+                if MH == 40:
+                    print ("Ring of Spell Storing")
+                if MH == 41:
+                    print ("Scale Mail +1")
+                if MH == 42:
+                    print ("Shield +2")
+                if MH == 43:
+                    print ("Staff of Healing")
+                if MH == 44:
+                    print ("Sun Blade")
+                if MH == 45:
+                    print ("Sword of Life Stealing")
+            if t >= 10 and t < 25:
+                MG = random.randint(0, 30)
+                if MG <= 15:
+                    wa1 = random.randint(0,17)
+                    if wa1 == 0:
+                        print ("Battleaxe +1")
+                    if wa1 == 1:
+                        print ("Flail +1")
+                    if wa1 == 2:
+                        print ("Glaive +1")
+                    if wa1 == 3:
+                        print ("Greataxe +1")
+                    if wa1 == 4:
+                        print ("Greatsweord +1")
+                    if wa1 == 5:
+                        print ("Greatsword +1")
+                    if wa1 == 6:
+                        print ("Longsword +1")
+                    if wa1 == 7:
+                        print ("Longsword +1")
+                    if wa1 == 8:
+                        print ("Maul +1")
+                    if wa1 == 9:
+                        print ("Rapier +1")
+                    if wa1 == 10:
+                        print ("Saber +1")
+                    if wa1 == 11:
+                        print ("Scimitar +1")
+                    if wa1 == 12:
+                        print ("Shortsword +1")
+                    if wa1 == 13:
+                        print ("Quarterstaff +1")
+                    if wa1 == 14:
+                        print ("Heavy Crossbow +1")
+                    if wa1 == 15:
+                        print ("Hand Crossbow +1")
+                    if wa1 == 16:
+                        print ("Longbow +1")
+                    if wa1 == 17:
+                        print ("Shortbow +1")
+                if MG > 15 and MG <= 18:
+                    print ("Shield +1")
+                if MG == 19:
+                    print ("Boots of Striding and Springing")
+                if MG == 20:
+                    print ("Bracers of Archery")
+                if MG == 21:
+                    print ("Brooch of Shielding")
+                if MG == 22:
+                    print ("Gauntlets of Ogre Power")
+                if MG == 23:
+                    print ("Ring of Mind Shielding")
+                if MG == 24:
+                    print ("Sword of Vengeance")
+                if MG == 25:
+                    print ("Wand of Magic Missiles")
+                if MG == 26:
+                    print ("Slippers of Spider Climbing")
+                if MG == 27:
+                    print ("Trident of Fish Command")
+                if MG == 28:
+                    print ("Spear of Lightning")
+                if MG == 29:
+                    print ("Pearl of Power")
+                if MG == 30:
+                    print ("Shoes of Spider Climbing")
+            if t >= 25 and t < 45:
+                MF = random.randint(0, 100)
+                if MF <=30:
+                    print ("Spell Scroll 8th Level")
+                if MF > 30 and MF <= 55:
+                    print ("Potion of Storm Giant Strength")
+                if MF > 55 and MF <= 70:
+                    print ("Potion of Supreme Healing")
+                if MF > 70 and MF <= 85:
+                    print ("Spell Scroll 9th level")
+                if MF > 85 and MF <= 93:
+                    print ("Universal Solvent")
+                if MF > 93 and MF <= 98:
+                    print ("Arrow of Slaying")
+                if MF > 99 and MF <= 100:
+                    print ("Socereign Glue")
+            if t >= 45 and t < 70:
+                MB = random.randint(0, 100)
+                if MB <= 15:
+                    print ("Potion of Greater Healing")
+                if MB > 15 and MB <= 22:
+                    print ("Potion of Fire Breath")
+                if MB > 22 and MB <= 29:
+                    print ("Potion of Resistance")
+                if MB > 29 and MB <= 34:
+                    print ("+1 Ammunition")
+                if MB > 34 and MB <= 39:
+                    print ("Potion of Animal Friendship")
+                if MB > 39 and MB <= 44:
+                    print ("Potion of Hill Giant Strength")
+                if MB > 44 and MB <= 49:
+                    print ("Potion of Growth")
+                if MB > 49 and MB <= 54:
+                    print ("Potion of Water Breathing")
+                if MB > 54 and MB <= 59:
+                    print ("Spell Scroll 2nd Levels")
+                if MB > 59 and MB <= 64:
+                    print ("Spell Scroll 3rd Levels")
+                if MB > 64 and MB <= 67:
+                    print ("Bag of Holding")
+                if MB > 67 and MB <= 70:
+                    print ("Keogthtom's Ointment")
+                if MB > 70 and MB <= 73:
+                    print ("Oil of Slipperiness")
+                if MB > 73 and MB <= 75:
+                    print ("Dust of Disappearance")
+                if MB > 75 and MB <= 77:
+                    print ("Dust of Dryness")
+                if MB > 77 and MB <= 79:
+                    print ("Dust of Sneezing and Choking")
+                if MB > 79 and MB <= 81:
+                    print ("Elemental Gem")
+                if MB > 81 and MB <= 84:
+                    print ("Alchemy Jug")
+                if MB == 85:
+                    print ("Cap of Water Breathing")
+                if MB == 86:
+                    print ("Cloak of the manta ray")
+                if MB == 87:
+                    print ("Driftglobe")
+                if MB == 88:
+                    print ("Googles of night")
+                if MB == 89:
+                    print ("Helm of Comprehending Languages")
+                if MB == 90:
+                    print ("Immovble Rod")
+                if MB == 91:
+                    print ("Lantern of Revealing")
+                if MB == 92:
+                    print ("Mariner's Armor")
+                if MB == 93:
+                    print ("Mithral Armor")
+                if MB == 94:
+                    print ("Potion of Poison")
+                if MB == 95:
+                    print ("Ring of Swimming")
+                if MB == 96:
+                    print ("Robe of useful Items")
+                if MB == 97:
+                    print ("Rope of Climbing")
+                if MB == 98:
+                    print ("Saddle ofthe Cavalier")
+                if MB == 99:
+                    print ("Wand of Magic Detection")
+                if MB == 100:
+                    print ("Wand of Secrets")
+            if t >= 70 and t <= 100:
+                MA = random.randint(0, 100)
+                if MA <= 50:
+                    print ("Potion of Healing")
+                if MA > 50 and MA <= 60:
+                    print ("Spell Scroll Cantrip")
+                if MA > 60 and MA <= 70:
+                    print ("Potion of Climbing")
+                if MA > 70 and MA <= 90:
+                    print ("Spell Scroll 1st Level")
+                if MA > 90 and MA <= 94:
+                    print ("Spell Scroll 2nd Level")
+                if MA > 94 and MA <= 98:
+                    print ("Potion of Greater Healing")
+                if MA == 99:
+                    print ("Bag of Holding")
+                if MA == 100:
+                    print ("Driftglobe")
+        if ifm >= 20 and ifm <= 100:
+            t = random.randint(0,100)
+            if t < 40:
+                MI = random.randint(0,100)
+                if MI < 20:
+                    wa = random.randint(0,20)
+                    if wa == 0:
+                        print ("Battleaxe")
+                    if wa == 1:
+                        print ("Flail ")
+                    if wa == 2:
+                        print ("Glaive ")
+                    if wa == 3:
+                        print ("Greataxe ")
+                    if wa == 4:
+                        print ("Greatsweord ")
+                    if wa == 5:
+                        print ("Greatsword ")
+                    if wa == 6:
+                        print ("Longsword ")
+                    if wa == 7:
+                        print ("Longsword ")
+                    if wa == 8:
+                        print ("Maul ")
+                    if wa == 9:
+                        print ("Rapier ")
+                    if wa == 10:
+                        print ("Saber ")
+                    if wa == 11:
+                        print ("Scimitar ")
+                    if wa == 12:
+                        print ("Shortsword ")
+                    if wa == 13:
+                        print ("Quarterstaff ")
+                    if wa == 14:
+                        print ("Heavy Crossbow ")
+                    if wa == 15:
+                        print ("Hand Crossbow ")
+                    if wa == 16:
+                        print ("Longbow ")
+                    if wa == 17:
+                        print ("Shortbow ")
+                    if wa == 18:
+                        print ("Shield")
+                    if wa == 19:
+                        print ("Buckler Shield")
+                    if wa == 20:
+                        print ("Tower Shield")
+                if MI >= 20 and MI <= 100:
+                    I = random.randint(20,32)
+                    if I == 20:
+                        print ("Bottle of Holy Water")
+                    if I == 21:
+                        print ("1d4 5gp Gems")
+                    if I == 22:
+                        print ("1d4 rations")
+                    if I == 23:
+                        print ("A large ruby '50 gp'")
+                    if I == 24:
+                        print ("A bowl of herbs")
+                    if I == 25:
+                        print ("10ft of rope")
+                    if I == 26:
+                        print ("A vial of Acid")
+                    if I == 27:
+                        print ("An unburned torch")
+                    if I == 28:
+                        print ("A vial of oil")
+                    if I == 29:
+                        print ("An ancient-looking key")
+                    if I == 30:
+                        print ("A worn shovel")
+                    if I == 31:
+                        print ("A vial of antivenom")
+                    if I == 32:
+                        print ("A roll of dirty bandages")
+                        
+            if t >= 40 and t <= 100:
+                g = random.randint(0, 100)
+                if g <= 5:
+                    print ("50 Gp")
+                if g >= 6 and g <= 16:
+                    print ("35 Gp")
+                if g >= 17 and g <= 32:
+                    print ("25 Gp")
+                if g >= 33 and g <= 58:
+                    print ("15 Gp")
+                if g >= 59 and g <= 100:
+                    print ("10 Gp")
+        #print (t)
+        #print (ifm)
+        
+
+    #boss generator
+    if function == 4:
+        level = input("What floor are you on?")
+        #Size Generator
+        size = random.randint(0, 4)
+        if size == 0:
+            size = "tiny"
+        if size == 1:
+            size = "small"
+        if size == 2:
+            size = "medium"
+        if size == 3:
+            size = "large"
+        if size == 4:
+            size = "huge"
+
+        #Type
+        bosstype = random.randint(0, 7)
+        if bosstype == 0:
+            bosstype = "lizard"
+        if bosstype == 1:
+            bosstype = "serpent"
+        if bosstype == 2:
+            bosstype = "construct"
+        if bosstype == 3:
+            bosstype = "humanoid"
+        if bosstype == 4:
+            bosstype = "ghost"
+        if bosstype == 5:
+            bosstype = "slime"
+        if bosstype == 6:
+            bosstype = "plant"
+        if bosstype == 7:
+            bosstype = "mammal"
+        
+
+        #Special Attack Damage 
+        spatdmg = 0    
+        sptype = random.randint(0, 0)
+        if sptype == 0:
+            if size == "tiny":
+                if level == 1:
+                    spatdmg = "7d10"
+                if level == 2:
+                    spatdmg = "10d8"
+                if level == 3:
+                    spatdmg = "12d10"
+                if level == 4:
+                    spatdmg = "12d12"
+            if size == "small":
+                if level == 1:
+                    spatdmg = "8d10"
+                if level == 2:
+                    spatdmg = "12d8"
+                if level == 3:
+                    spatdmg = "14d10"
+                if level == 4:
+                    spatdmg = "14d12"
+            if size == "medium":
+                if level == 1:
+                    spatdmg = "9d10"
+                if level == 2:
+                    spatdmg = "14d8"
+                if level == 3:
+                    spatdmg = "16d10"
+                if level == 4:
+                    spatdmg = "16d12"
+            if size == "large":
+                if level == 1:
+                    spatdmg = "10d10"
+                if level == 2:
+                    spatdmg = "16d8"
+                if level == 3:
+                    spatdmg = "18d10"
+                if level == 4:
+                    spatdmg = "18d12"
+            if size == "huge":
+                if level == 1:
+                    spatdmg = "11d10"
+                if level == 2:
+                    spatdmg = "18d8"
+                if level == 3:
+                    spatdmg = "20d10"
+                if level == 4:
+                    spatdmg = "20d12"
+
+        #Special Attack Type         
+        spat = random.randint(0, 7)
+        if spat == 0:
+            spat = "Fire Attack, Recharge 5-6, line, Dex save " + spatdmg + " fire damage "
+        if spat == 1:
+            spat = "Lightning Attack, Recharge 5-6, cone, Dex save " +spatdmg +" lightning damage "
+        if spat == 2:
+            spat = "Ice Attack, Recharge 5-6, cone, Con save " +spatdmg +" cold damage"
+        if spat == 3:
+            spat = "Poison Attack, Recharge 5-6, cone, Con save " +spatdmg+ " poison damage"
+        if spat == 4:
+            spat = "Psychic beam, Reacharge 5-6, line, Int save " +spatdmg+ " -2 die, psychic damage, -2 Int on fail"
+        if spat == 5:
+            spat = "Ground stomp, Recharge 5-6, area, Str save " +spatdmg+ " -1 die, bludgeoning damage, knocked prone on fail, ground becomes difficult terrain"
+        if spat == 6:
+            spat = "Confusion ray, Recharge 5-6, one target, Wis save " +spatdmg+ "-2 die, pyschic damage, target can't move next turn and must use action to attack an ally"
+        if spat == 7:
+            spat = "Fear blast, Recharge 5-6, area, Wis save " +spatdmg+ " -2 die, pyschic damage, on fail targets are afraid on boss, can make new save after every turn"
+        
+        #Proficiency Bonus
+        Pb = 0
+        if level == 1:
+            Pb = 3
+        if level == 2:
+            Pb = 4
+        if level == 3:
+            Pb = 5
+        if level == 4:
+            Pb = 5
+
+        #Save DC
+        DC = 0
+        if level == 1:
+            DC = 16
+        if level == 2:
+            DC = 17
+        if level == 3:
+            DC = 18
+        if level == 4:
+            DC = 19
+        
+        #Armor Class
+        A = 0
+        if size == "tiny":
+            if level == 1:
+                A = 18
+            if level == 2:
+                A = 19
+            if level == 3:
+                A = 20
+            if level == 4:
+                A = 21
+        if size == "small":
+            if level == 1:
+                A = 17
+            if level == 2:
+                A = 18
+            if level == 3:
+                A = 19
+            if level == 4:
+                A = 20
+        if size == "medium":
+            if level == 1:
+                A = 16
+            if level == 2:
+                A = 17
+            if level == 3:
+                A = 18
+            if level == 4:
+                A = 19
+        if size == "large":
+            if level == 1:
+                A = 14
+            if level == 2:
+                A = 15
+            if level == 3:
+                A = 16
+            if level == 4:
+                A = 17
+        if size == "huge":
+            if level == 1:
+                A = 13
+            if level == 2:
+                A = 14
+            if level == 3:
+                A = 15
+            if level == 4:
+                A = 16
+
+        #Health Points
+        HP = 0
+        if level == 1:
+            HP = random.randint(150, 185)
+            if size == "tiny":
+                HP = HP-(HP*0.25)
+            if size == "small":
+                HP = HP-(HP*0.15)
+            if size == "medium":
+                HP = HP-(HP*0.05)
+            if size == "large":
+                HP = HP+(HP*0.15)
+            if size == "huge":
+                HP = HP+(HP*0.25)
+        if level == 2:
+            HP = random.randint(221, 235)
+            if size == "tiny":
+                HP = HP-(HP*0.25)
+            if size == "small":
+                HP = HP-(HP*0.15)
+            if size == "medium":
+                HP = HP-(HP*0.05)
+            if size == "large":
+                HP = HP+(HP*0.15)
+            if size == "huge":
+                HP = HP+(HP*0.25)
+        if level == 3:
+            HP = random.randint(251, 265)
+            if size == "tiny":
+                HP = HP-(HP*0.25)
+            if size == "small":
+                HP = HP-(HP*0.15)
+            if size == "medium":
+                HP = HP-(HP*0.05)
+            if size == "large":
+                HP = HP+(HP*0.15)
+            if size == "huge":
+                HP = HP+(HP*0.25)
+        if level == 4:
+            HP = random.randint(296, 310)
+            if size == "tiny":
+                HP = HP-(HP*0.25)
+            if size == "small":
+                HP = HP-(HP*0.15)
+            if size == "medium":
+                HP = HP-(HP*0.05)
+            if size == "large":
+                HP = HP+(HP*0.15)
+            if size == "huge":
+                HP = HP+(HP*0.25)
+
+        #Speed
+        sp = 0
+        if size == "tiny":
+            sp = 40
+        if size == "small":
+            sp = 35
+        if size == "medium":
+            sp = 30
+        if size == "large":
+            sp = 25
+        if size == "huge":
+            sp = 20
+
+
+        #Basic Ability Stats
+        STR = random.randint(12, 16)
+        DEX = random.randint(12, 16)
+        CON = random.randint(12, 16)
+        WIS = random.randint(8, 14)
+        INT = random.randint(8, 14)
+        CHA = random.randint(8, 14)
+        if size == "tiny":
+            STR = STR - 4
+            DEX = DEX + 4
+            CON = CON - 4
+        if size == "small":
+            STR = STR - 2
+            DEX = DEX + 2
+            CON = CON - 2
+        if size == "medium":
+            STR = STR - 1
+            DEX = DEX + 1
+            CON = CON - 1
+        if size == "large":
+            STR = STR + 2
+            DEX = DEX - 2
+            CON = CON + 2
+        if size == "huge":
+            STR = STR + 4
+            DEX = DEX - 4
+            CON = CON + 4
+
+        #Ability Score Bonuses
+        STRb = 0
+        DEXb = 0
+        CONb = 0
+        WISb = 0
+        INTb = 0
+        CHAb = 0
+        if STR == 6 or STR == 7:
+            STRb = -2
+        if STR == 8 or STR == 9:
+            STRb = -1
+        if STR == 10 or STR == 11:
+            STRb = 0
+        if STR == 12 or STR == 13:
+            STRb = 1
+        if STR == 14 or STR == 15:
+            STRb = 2
+        if STR == 16 or STR == 17:
+            STRb = 3
+        if STR == 18 or STR == 19:
+            STRb = 4
+        if STR == 20 or STR == 21:
+            STRb = 5
+        if STR == 22 or STR == 22:
+            STRb = 6
+
+        if DEX == 6 or DEX == 7:
+            DEXb = -2
+        if DEX == 8 or DEX == 9:
+            DEXb = -1
+        if DEX == 10 or DEX == 11:
+            DEXb = 0
+        if DEX == 12 or DEX == 13:
+            DEXb = 1
+        if DEX == 14 or DEX == 15:
+            DEXb = 2
+        if DEX == 16 or DEX == 17:
+            DEXb = 3
+        if DEX == 18 or DEX == 19:
+            DEXb = 4
+        if DEX == 20 or DEX == 21:
+            DEXb = 5
+        if DEX == 22 or DEX == 22:
+            DEXb = 6
+
+        if CON == 6 or CON == 7:
+            CONb = -2
+        if CON == 8 or CON == 9:
+            CONb = -1
+        if CON == 10 or CON == 11:
+            CONb = 0
+        if CON == 12 or CON == 13:
+            CONb = 1
+        if CON == 14 or CON == 15:
+            CONb = 2
+        if CON == 16 or CON == 17:
+            CONb = 3
+        if CON == 18 or CON == 19:
+            CONb = 4
+        if CON == 20 or CON == 21:
+            CONb = 5
+        if CON == 22 or CON == 22:
+            CONb = 6
+
+        if WIS == 6 or WIS == 7:
+            WISb = -2
+        if WIS == 8 or WIS == 9:
+            WISb = -1
+        if WIS == 10 or WIS == 11:
+            WISb = 0
+        if WIS == 12 or WIS == 13:
+            WISb = 1
+        if WIS == 14 or WIS == 15:
+            WISb = 2
+        if WIS == 16 or WIS == 17:
+            WISb = 3
+        if WIS == 18 or WIS == 19:
+            WISb = 4
+        if WIS == 20 or WIS == 21:
+            WISb = 5
+        if WIS == 22 or WIS == 22:
+            WISb = 6
+
+        if INT == 6 or INT == 7:
+            INTb = -2
+        if WIS == 8 or INT == 9:
+            INTb = -1
+        if INT == 10 or INT == 11:
+            INTb = 0
+        if INT == 12 or INT == 13:
+            INTb = 1
+        if INT == 14 or INT == 15:
+            INTb = 2
+        if INT == 16 or INT == 17:
+            INTb = 3
+        if INT == 18 or INT == 19:
+            INTb = 4
+        if INT == 20 or INT == 21:
+            INTb = 5
+        if INT == 22 or INT == 22:
+            INTb = 6
+
+        if CHA == 6 or CHA == 7:
+            CHAb = -2
+        if CHA == 8 or CHA == 9:
+            CHAb = -1
+        if CHA == 10 or CHA == 11:
+            CHAb = 0
+        if CHA == 12 or CHA == 13:
+            CHAb = 1
+        if CHA == 14 or CHA == 15:
+            CHAb = 2
+        if CHA == 16 or CHA == 17:
+            CHAb = 3
+        if CHA == 18 or CHA == 19:
+            CHAb = 4
+        if CHA == 20 or CHA == 21:
+            CHAb = 5
+        if CHA == 22 or CHA == 22:
+            CHAb = 6
+
+        #Attack 1 Damage
+        At1Dmg = 0
+        if size == "tiny":
+            if level == 1:
+                At1Dmg = "3d6"
+            if level == 2:
+                At1Dmg = "4d6" 
+            if level == 3:
+                At1Dmg = "5d6"
+            if level == 4:
+               At1Dmg = "6d6" 
+        if size == "small":
+            if level == 1:
+                At1Dmg = "2d10"
+            if level == 2:
+                At1Dmg = "4d8"
+            if level == 3:
+                At1Dmg = "5d8"
+            if level == 4:
+                At1Dmg = "6d8"
+        if size == "medium":
+            if level == 1:
+                At1Dmg = "3d8"
+            if level == 2:
+                At1Dmg = "4d10"
+            if level == 3:
+                At1Dmg = "5d10"
+            if level == 4:
+                At1Dmg = "6d10"
+        if size == "large":
+            if level == 1:
+                At1Dmg = "3d10"
+            if level == 2:
+                At1Dmg = "4d12"
+            if level == 3:
+                At1Dmg = "5d12"
+            if level == 4:
+                At1Dmg = "6d12"
+        if size == "huge":
+            if level == 1:
+                At1Dmg = "3d12"
+            if level == 2:
+                At1Dmg = "5d10"
+            if level == 3:
+                At1Dmg = "6d10"
+            if level == 4:
+                At1Dmg = "7d10"
+
+        #Attack 2 Damage
+        At2Dmg = 0
+        if size == "tiny":
+            if level == 1:
+                At2Dmg = "2d4"
+            if level == 2:
+                At2Dmg = "3d4"
+            if level == 3:
+                At2Dmg = "4d4"
+            if level == 4:
+                At2Dmg = "5d4"
+        if size == "small":
+            if level == 1:
+                At2Dmg = "2d4"
+            if level == 2:
+                At2Dmg = "3d6"
+            if level == 3:
+                At2Dmg = "4d6"
+            if level == 4:
+                At2Dmg = "5d6"
+        if size == "medium":
+            if level == 1:
+                At2Dmg = "2d6"
+            if level == 2:
+                At2Dmg = "4d6"
+            if level == 3:
+                At2Dmg = "5d6"
+            if level == 4:
+                At2Dmg = "6d6"
+        if size == "large":
+            if level == 1:
+                At2Dmg = "2d6"
+            if level == 2:
+                At2Dmg = "4d8"
+            if level == 3:
+                At2Dmg = "5d8"
+            if level == 4:
+                At2Dmg = "6d8"
+        if size == "huge":
+            if level == 1:
+                At2Dmg = "2d8"
+            if level == 2:
+                At2Dmg = "5d8"
+            if level == 3:
+                At2Dmg = "6d8"
+            if level == 4:
+                At2Dmg = "7d8"
+
+        legnum = 3
+
+        #Special Attributes
+        atr = random.randint(0,10)
+        if atr == 0:
+            atr = "Flying: Has a flying speed of 60ft"
+            if level == 1:
+                HP = HP-(HP*0.15)
+            if level == 2:
+                HP = HP-(HP*0.15)
+            if level == 2:
+                HP = HP-(HP*0.15)
+            if level == 2:
+                HP = HP-(HP*0.15)
+        if atr == 1:
+            el = random.randint(0,2)
+            if el == 0:
+                atr = "Fire Elemental: all attacks now do an additional 2 fire damage on hit"
+            if el == 1:
+                atr = "Ice Elemental: all attacks now do an additional 2 cold damage on hit"
+            if el == 2:
+                atr = "Lightning Elemental: all attacks now do an additonal 2 lightning damage on hit"
+        if atr == 2:
+            atr = "Magical armor: gains resistance to non-magical weapons"
+            HP = HP-(HP*0.4)
+        if atr == 3:
+            atr = "Regen: While above 0 HP, regens "+str(HP*0.02)+" HP at the start of each of its turns"
+        if atr == 4:
+            atr = "Legendary Resistance: has 1 use of legendary resistance per day"
+        if atr == 5:
+            if STRb >= DEXb:
+                atr = "Brawny: STR and HP are slightly increased"
+                STR = STR + 2
+                if STR == 6 or STR == 7:
+                    STRb = -2
+                if STR == 8 or STR == 9:
+                    STRb = -1
+                if STR == 10 or STR == 11:
+                    STRb = 0
+                if STR == 12 or STR == 13:
+                    STRb = 1
+                if STR == 14 or STR == 15:
+                    STRb = 2
+                if STR == 16 or STR == 17:
+                    STRb = 3
+                if STR == 18 or STR == 19:
+                    STRb = 4
+                if STR == 20 or STR == 21:
+                    STRb = 5
+                if STR == 22 or STR == 22:
+                    STRb = 6
+                HP = HP+(HP*0.05)
+            if STRb < DEXb:
+                atr = "Quick: DEX and Speed are slightly increased"
+                DEX = DEX + 2
+                if DEX == 6 or DEX == 7:
+                    DEXb = -2
+                if DEX == 8 or DEX == 9:
+                    DEXb = -1
+                if DEX == 10 or DEX == 11:
+                    DEXb = 0
+                if DEX == 12 or DEX == 13:
+                    DEXb = 1
+                if DEX == 14 or DEX == 15:
+                    DEXb = 2
+                if DEX == 16 or DEX == 17:
+                    DEXb = 3
+                if DEX == 18 or DEX == 19:
+                    DEXb = 4
+                if DEX == 20 or DEX == 21:
+                    DEXb = 5
+                if DEX == 22 or DEX == 22:
+                    DEXb = 6
+                sp = sp + 5
+        if atr == 6:
+            atr = "Well Armoured: AC increases by 1"
+            A = A + 1
+        if atr == 7:
+            atr = "Thick Hide: HP moderatly increases"
+            HP = HP+(HP*0.10)
+        if atr == 8:
+            atr = "Inker: Has magical darkvision and can cast the Darkness spell on itself as an action(Recharch 5-6"
+        if atr == 9:
+            atr = "Climber: can climb surfaces without having to make a skill check"
+        if atr == 10:
+            atr = "Legendary: gains two extra legendary action uses per turn"
+            legnum = legnum+2
+
+        #Attack 1 Compiler
+        AT1 = random.randint(0, 4)
+        AT = random.randint(0,0)
+        STRhit = (STRb + Pb)
+        DEXhit = (DEXb + Pb)
+        if STRb >= DEXb:
+            if AT1 == 0:
+                AT1 = "Stab attack, reach 5ft, + " + str(STRhit) + " to hit, " + str(At1Dmg) +"+"+ str(STRb)+" piercing damage on hit"
+            if AT1 == 1:
+                AT1 = "Slam attack, reach 5ft, + " + str(STRhit) + " to hit, " + str(At1Dmg) +"+"+ str(STRb)+" bludgeoning damage on hit"
+            if AT1 == 2:
+                AT1 = "Reach attack, reach 15ft, + " + str(STRhit) + " to hit, " + str(At1Dmg) +"+"+ str(STRb)+ "-3 (variable) damage on hit"
+            if AT1 == 3:
+                AT1 = "Grab attack, reach 5ft, + " + str(STRhit) + " to hit, " + str(At1Dmg) +"+"+ str(STRb)+"-3 bludgeoning damage on hit, target makes a STR save, restrained on fail"
+            if AT1 == 4:
+                AT1 = "Poison attack, reach 5ft, + " + str(STRhit) + " to hit, " + str(At1Dmg) +"+"+ str(STRb)+"-4 piercing damage on hit, target makes a CON save, taking "+str(At1Dmg)+" and being poisoned on fail"
+        if STRb < DEXb:
+            if AT1 == 0:
+                AT1 = "Stab attack, reach 5ft, + " + str(DEXhit) + " to hit, " + str(At1Dmg) +"+"+ str(DEXb)+" piercing damage on hit"
+            if AT1 == 1:
+                AT1 = "Slam attack, reach 5ft, + " + str(DEXhit) + " to hit, " + str(At1Dmg) +"+"+ str(DEXb)+" bludgeoning damage on hit"
+            if AT1 == 2:
+                AT1 = "Reach attack, reach 15ft, + " + str(DEXhit) + " to hit, " + str(At1Dmg) +"+"+ str(DEXb)+"-3 (variable) damage on hit"
+            if AT1 == 3:
+                AT1 = "Grab attack, reach 5ft, + " + str(DEXhit) + " to hit, " + str(At1Dmg) +"+"+ str(DEXb)+"-3 bludgeoning damage on hit, target makes a STR save, restrained on fail"
+            if AT1 == 4:
+                AT1 = "Poison attack, reach 5ft, + " + str(DEXhit) + " to hit, " + str(At1Dmg) +"+"+ str(DEXb)+"-4 piercing damage on hit, target makes a CON save, taking "+str(At1Dmg)+" and being poisoned on fail"
+
+        #Attack 2 Compiler
+        AT2 = random.randint(0, 2)
+        STRhit = (STRb + Pb)
+        DEXhit = (DEXb + Pb)
+        if STRb >= DEXb:
+            if AT2 == 0:
+                AT2 = "Slash attack, reach 5ft, + " + str(STRhit) + " to hit, " + str(At2Dmg) +"+"+ str(STRb)+" slashing damage on hit"
+            if AT2 == 1:
+                AT2 = "Stab attack, reach 5ft, + " + str(STRhit) + " to hit, " + str(At2Dmg) +"+"+ str(STRb)+" piercing damage on hit"
+            if AT2 == 2:
+                AT2 = "Bash attack, reach 5ft, + " + str(STRhit) + " to hit, " + str(At2Dmg) +"+"+ str(STRb)+" bludgeoning damage on hit"
+        if STRb < DEXb:
+            if AT2 == 0:
+                AT2 = "Slash attack, reach 5ft, + " + str(DEXhit) + " to hit, " + str(At2Dmg) +"+"+ str(DEXb)+" slashing damage on hit"
+            if AT2 == 1:
+                AT2 = "Stab attack, reach 5ft, + " + str(DEXhit) + " to hit, " + str(At2Dmg) +"+"+ str(DEXb)+" piercing damage on hit"
+            if AT2 == 2:
+                AT2 = "Bash attack, reach 5ft, + " + str(DEXhit) + " to hit, " + str(At2Dmg) +"+"+ str(DEXb)+" bludgeoning damage on hit"
+
+        #Legendary Actions
+        leg1 = AT1
+        leg2 = random.randint(0,4)
+        if leg2 == 0:
+            leg2 = "(Costs 1 action) Leap 40ft any direction without provoking oppertunity attacks"
+        if leg2 == 1:
+            leg2 = "(Costs 2 actions) Wind attack, area, targets make STR save, taking "+str(At1Dmg)+" bludgeoning damage and being knocked prone on fail, or half as much and not prone on success"
+        if leg2 == 2:
+            leg2 = "(Costs 2 actions) Cloak, casts invisability on it's self and takes the hide action"
+        if leg2 == 3:
+            if STRb >= DEXb:
+                leg2 = "(Costs 2 actions) Spit (or net for constructs) attack, one target + "+str(STRhit)+" to hit, "+str(At1Dmg)+"+"+str(STRb)+" bludgeoning damage on hit, target makes STR save, restrained on fail untill spends action to repeat save"
+            if STRb < DEXb:
+                leg2 = "(Costs 2 actions) Spit (or net for constructs) attack, one target + "+str(DEXhit)+" to hit, "+str(At1Dmg)+"+"+str(DEXb)+" bludgeoning damage on hit, target makes STR save, restrained on fail untill spends action to repeat save"
+        if leg2 == 4:
+            leg2 = "(Costs 3 actions) Teleport to any location within eyesight and make one primary attack"
+
+        #Output
+        print()
+        print ("Size: "+size)
+        print ("Type: "+bosstype)
+        print ("Speed: "+str(sp))
+        print ("AC: " + str(A))
+        print ("Save DC: " + str(DC))
+        print ("HP: "+ str(HP))
+        print()
+        print ("Multiattack: Can perform one primary attack and two secondary attacks")
+        print ("Primary Attack: "+AT1)
+        print ("Secondary Attack: " +AT2)
+        print ("Special Attack: "+spat)
+        print()
+        print ("Legendary Actions: Has "+str(legnum)+" legendary actions. All expended points are refunded at the start of its next turn")
+        print ("Legendary Action 1: (Costs 1 action) "+leg1)
+        print ("Legendary Action 2: "+leg2)
+        print ("Special Attribute: "+atr)
+        print()
+        print ("STR: "+str(STR))
+        print ("STR Bonus: "+str(STRb))
+        print ("DEX: "+str(DEX))
+        print ("DEX Bonus: "+str(DEXb))
+        print ("CON: "+str(CON))
+        print ("CON Bonus: "+str(CONb))
+        print ("INT: "+str(INT))
+        print ("INT Bonus: "+str(INTb))
+        print ("WIS: "+str(WIS))
+        print ("WIS Bonus: "+str(WISb))
+        print ("CHA: "+str(CHA))
+        print ("CHA Bonus: "+str(CHAb))
+        print()
+
+    #Quirk
+    if function == 5:
+        hw = 0
+        if hw == 0:
+            ifcurse = random.randint(0,100)
+            if ifcurse < 75:
+                curse = random.randint(0, 50)
+                if curse == 0:
+                    curse = "The character cannot turn right until the curse is lifted."
+                if curse == 1:
+                    curse = "A player must close every door they walk through, even if there are people behind them"
+                if curse == 2:
+                    curse = "A player's weapon becomes lodged inside the body of their enemy after any stab attack, a strength check (DC 15) is needed to free the weapon." 
+                if curse == 3:
+                    curse = "A player is stalked by an imp, who simply follows him, saying nothing, always staring. No one else can see the imp"
+                if curse == 4:
+                    curse = "The next item the cursed player grabs is bound to them forever, they can never get rid of it"
+                if curse == 5:
+                    curse = "When killing somthing in stealth, killed thing screams really loud (500ft radius)"
+                if curse == 6:
+                    curse = "Character takes on the appearance and smell of being undead, but isn't"
+                if curse == 7:
+                    curse = "Character can only tell lies, failing to do so will cause them to take 20d20 psychic damage"
+                if curse == 8:
+                    curse = "Characters must agree to every suggestion or request made within 30 feet of them."
+                if curse == 9:
+                    curse = "The cursed character takes 1 damage whenever a creature within 30 feet of them takes any damage"
+                if curse == 10:
+                    curse = "Characters low-light vision and high-light vision switch"
+                if curse == 11:
+                    curse = "Character is struck with blindness, but can accurately identify objects by taste through the air up to 60 feet away"
+                if curse == 12:
+                    curse = "Your CHA stat becomes your CHAR stat, determining your effectiveness at cooking up a mean barbeque. Reflavour spells and skill checks accordingly"
+                if curse == 13:
+                    curse = "The cursed begins aging at 5 years an hour. At 100 years old they turn to dust, and an infant(same person and memories) emerges from their clothing and ages at same rate untill 20" 
+                if curse == 14:
+                    curse = "A thunderous voice narrates everything the cursed does, says, or thinks for the next d4 hours. "
+                if curse == 15:
+                    curse = "Character can only yell, unless they are trying to, at which point they can only whisper"
+                if curse == 16:
+                    curse = "Animals and children are always aware of your presence and are able to locate you without difficulty. "
+                if curse == 17:
+                    curse = "Everytime a player deals damage the same amount is reflected back to a random party member. "
+                if curse == 18:
+                    curse = "The PC must only speak in rhyme"
+                if curse == 19:
+                    curse = "All the player's equipment glows brightly for 24 hours. All of it"
+                if curse == 20:
+                    curse = "The player becomes magnetic"
+                if curse == 21:
+                    curse = "The character perceives traps everywhere where none exist."
+                if curse == 22:
+                    curse = "The cursed becomes lactose intolerant. Consuming any dairy leads to 1d4 hour(s) of insufferable gas & diarrhea"
+                if curse == 23:
+                    curse = "Boots squeak loudly with each step"
+                if curse == 24:
+                    curse = "The character cannot be convinced by any means that magic exists. They rationalize magical events away by using insane, impossible logic." 
+                if curse == 25:
+                    curse = "The character is unable to sleep when others are sleeping in a 60' radius"
+                if curse == 26:
+                    curse = "Once the character has fallen asleep they cannot be awoken by any non-magical means until 8 hours have passed"
+                if curse == 27:
+                    curse = "The character cannot see anyone within 10 feet of them"
+                if curse == 28:
+                    curse = "Incapable of ignoring direct orders given to their person."
+                if curse == 29:
+                    curse = "Turned into a lycanthrope... with the form of a rabbit."
+                if curse == 30:
+                    curse = "A perpetually magical darkness surrounds the character for 25 feet. It is transmittable by touch."
+                if curse == 31:
+                    curse = "Makes an unarmed attack against themselves whenever they say 'what'"
+                if curse == 32:
+                    curse = "Tiny naked man follows you around and only screams, no one else can see or hear him"
+                if curse == 33:
+                    curse = "PCs weapon changes to the next material they touch."
+                if curse == 34:
+                    curse = "All potions being held by PC give a delusion effect"
+                if curse == 35:
+                    curse = "The next person the PC touches switches all items." 
+                if curse == 36:
+                    curse = "Whenever the character physically harms another sentient being the character must apologize"
+                if curse == 37:
+                    curse = "This curse makes the player compelled to hug all characters they come across, even if it would be inappropriate or awkward."
+                if curse == 38:
+                    curse = "The cursed may never sit for any reason."
+                if curse == 39:
+                    curse = "Everyone refuses to give you service "
+                if curse == 40:
+                    curse = "The cursed cannot hold their breath. Ever. At all. For any reason."
+                if curse == 41:
+                    curse = "Anything experienced by the cursed while alone is entirely fictional. The only real experiences they have are those shared by at least one other member of the party."
+                if curse == 42:
+                    curse = "The cursed has intermittent super strength, but only at the worst times."
+                if curse == 43:
+                    curse = "The cursed cannot abide the presence of the opposite gender, and must either fight, or excuse themselves from the area if they encounter one."
+                if curse == 44:
+                    curse = "Every time the curse misses an attack, he will drop his weapon."
+                if curse == 45:
+                    curse = "If music is played, the cursed must dance to it."
+                if curse == 46:
+                    curse = "Instead of food, the cursed subsists off of making people cry." 
+                if curse == 47:
+                    curse = "The size of the cursed becomes variable. Each morning they can become a midget, or a giant."
+                if curse == 48:
+                    curse = "Anytime the cursed takes damage, he must scream with a moan of pleasure"
+                if curse == 49:
+                    curse = "Anytime the cursed takes damage, he must scream with a moan of pleasure"
+                if curse == 50:
+                    curse = "curse"
+            if ifcurse >= 75 and ifcurse < 100:
+                curse = random.randint(0,5)
+                if curse == 0:
+                    curse = "All stats increase by 2 for 1 hour"
+                if curse == 1:
+                    curse = "Increase in size by one size for 1d4 hours"
+                if curse == 2:
+                    curse = "Your next 1d6 hits with your current weapon are critical hits"
+                if curse == 3:
+                    curse = "Your AC increases by 1 for 1d4 days"
+                if curse == 4:
+                    curse = "Your STR and DEX increase to 18 for 1d6 hours, if already at 18, incrase to 20 for 1d6 hours"
+                if curse == 5:
+                    curse = "Your HP maximum is increased by 3 times your level for 1d4 days"
+                 
+
+        print()
+        print(curse)
+        print()
+
+        
+    #Hunger Check
+    if function == 7:
+        hcheck = input("What is your last hcheck ")
+        hcheck = hcheck + random.randint(15, 40)
+        print (hcheck)
+        print ()
+        if hcheck >= 100:
+            print ("hunger check")
+            
+
+    #Fight
+    if function == 8:
+        test = 1
+        area = input("What area are you in?\n 1.Ruins\n 2.Warrens\n 3.Weald\n 4.Cove\n ")
+        level = input("What level are you on? ")
+        if test == 1:
+            count = 0
+            monster = "null"
+            total = 0
+            adjtotal = 0
+            end = 0
+            while end == 0:
+                diff = random.randint(0,99)
+                if diff >= 0 and diff < 30:
+                    diff = "easy"
+                if diff >= 30 and diff < 85:
+                    diff = "medium"
+                if diff >= 85 and diff < 100:
+                    diff = "hard"
+            
+                if area == 1:
+                    maxmon = random.randint(2,10)
+                    #print (maxmon)
+                    while count <= maxmon:
+                        x = random.randint(0,99)
+                        #print (x)
+                        
+                        if x >= 0 and x < 15:
+                            monster = "Skeleton Soldier"
+                            x = 200
+                        if x >= 15 and x < 30:
+                            monster = "Cultist Brawler"  
+                            x = 200
+                        if x >= 30 and x < 40:
+                            monster = "Cultist Witch"   
+                            x = 50
+                        if x >= 40 and x < 50:
+                            monster = "Bone Bulwark"
+                            x = 450
+                        if x >= 51 and x < 61:
+                            monster = "Bone Arbalist"
+                            x = 200
+                        if x >= 61 and x < 70:
+                            monster = "Bone Courtier"
+                            x = 100
+                        if x >= 70 and x < 80:
+                            monster = "Bone Captain"
+                            x = 700
+                        if x >= 80 and x < 90:
+                            monster = "Pikeman"
+                            x = 100
+                        if x >= 90 and x < 95:
+                            monster = "The Necromancer"
+                            x = 1800
+                        if x >= 95 and x < 100:
+                            monster = "The Prophet"
+                            x = 1800
+                        
+                        print (monster)
+                        
+                        #print (count)
+                        total = total + x
+                        count = count + 1
+                        #print (total)
+                if area == 2:
+                    maxmon = random.randint(2,10)
+                    #print (maxmon)
+                    while count <= maxmon:
+                        x = random.randint(0,99)
+                        #print (x)
+                        if x >= 0 and x < 15:
+                            monster = "Cultist Brawler"  
+                            x = 50
+                        if x >= 15 and x < 25:
+                            monster = "Cultist Witch"   
+                            x = 50
+                        if x >= 25 and x < 40:
+                            monster = "Swine Wretch"
+                            x = 50
+                        if x >= 40 and x < 50:
+                            monster = "Swine Drummer"  
+                            x = 50
+                        if x >= 51 and x < 60:
+                            monster = "Swine Chopper"   
+                            x = 100
+                        if x >= 60 and x < 70:
+                            monster = "Swine Slasher"
+                            x = 100
+                        if x >= 70 and x < 80:
+                            monster = "Swine Skiver"
+                            x = 200
+                        if x >= 80 and x < 85:
+                            monster = "Large Carrion Eater"
+                            x = 450
+                        if x >= 85 and x < 90:
+                            monster = "Swinetaur"
+                            x = 700
+                        if x >= 90 and x < 95:
+                            monster = "The Formless Flesh"
+                            x = 1800
+                        if x >= 95 and x < 100:
+                            monster = "The Swine King and Wilbur"
+                            x = 3000
+                        
+                        print (monster)
+                        
+                        #print (count)
+                        total = total + x
+                        count = count + 1
+                        #print (total)
+                if area == 3:
+                    maxmon = random.randint(2,10)
+                    #print (maxmon)
+                    while count <= maxmon:
+                        x = random.randint(0,99)
+                        #print (x)
+                        if x >= 0 and x < 15:
+                            monster = "Cultist Brawler"  
+                            x = 50
+                        if x >= 15 and x < 30:
+                            monster = "Cultist Witch"   
+                            x = 50
+                        if x >= 30 and x < 45:
+                            monster = "Fungal Scratcher"
+                            x = 100
+                        if x >= 45 and x < 60 and x != 50:
+                            monster = "Fungal Bombardier"  
+                            x = 50
+                        if x >= 60 and x < 70:
+                            monster = "Medium Ectoplasm"   
+                            x = 100
+                        if x >= 70 and x < 80:
+                            monster = "Large Extoplasm"
+                            x = 200
+                        if x >= 80 and x < 85:
+                            monster = "Crone"
+                            x = 100
+                        if x >= 85 and x < 90:
+                            monster = "Blighted Giant"
+                            x = 450
+                        if x >= 90 and x < 95:
+                            monster = "Hateful Virago"
+                            x = 100
+                        if x >= 95 and x < 100:
+                            monster = "The Hag"
+                            x = 1800
+                        
+                        print (monster)
+                        
+                        #print (count)
+                        total = total + x
+                        count = count + 1
+                        #print (total)
+                if area == 4:
+                    maxmon = random.randint(2,10)
+                    #print (maxmon)
+                    while count <= maxmon:
+                        x = random.randint(0,99)
+                        #print (x)
+                        if x >= 0 and x < 15:
+                            monster = "Cultist Brawler"  
+                            x = 50
+                        if x >= 15 and x < 25:
+                            monster = "Cultist Witch"   
+                            x = 50
+                        if x >= 25 and x < 40:
+                            monster = "Pelagic Grouper"
+                            x = 50
+                        if x >= 40 and x < 50:
+                            monster = "Pelagic Shaman"  
+                            x = 50
+                        if x >= 51 and x < 60 :
+                            monster = "Pelagic Bulwark"   
+                            x = 100
+                        if x >= 60 and x < 70:
+                            monster = "Drowned Thrall"
+                            x = 50
+                        if x >= 70 and x < 80:
+                            monster = "Deep Stinger"
+                            x = 100
+                        if x >= 80 and x < 85:
+                            monster = "Uca Major"
+                            x = 450
+                        if x >= 85 and x < 90:
+                            monster = "Squiffy Ghast"
+                            x = 200
+                        if x >= 90 and x < 95:
+                            monster = "The Siren"
+                            x = 1800
+                        if x >= 95 and x < 100:
+                            monster = "The Drowned Crew and Anchorman"
+                            x = 3000
+                        
+                        print (monster)
+                        
+                        #print (count)
+                        total = total + x
+                        count = count + 1
+                        #print (total)
+     
+
+                print (diff)
+                print ()
+                print ()
+                print ()
+                if maxmon == 1:
+                    adjtotal = total
+                if maxmon == 2:
+                    adjtotal = total * 1.5
+                if maxmon >= 3 and maxmon <= 6:
+                    adjtotal = total * 2
+                if maxmon >= 7 and maxmon <= 10:
+                    adjtotal = total * 2.5
+                if maxmon >= 11 and maxmon <= 14:
+                    adjtotal = total * 3
+                if maxmon >= 15:
+                    adjtotal = total * 4
+
+                #print (adjtotal)
+                if level == 1:
+                    if diff == "easy":  
+                        if adjtotal >= 1000 and adjtotal <= 2000:
+                            end = 1
+                        if adjtotal < 1000 or adjtotal > 2000:
+                            count = 0
+                            total = 0
+                    if diff == "medium":
+                        if adjtotal >= 2000 and adjtotal <= 3000:
+                            end = 1
+                        if adjtotal < 2000 or adjtotal > 3000:
+                            count = 0
+                            total = 0
+                    if diff == "hard":
+                        if adjtotal >= 3000 and adjtotal <= 4400:
+                            end = 1
+                        if adjtotal < 3000 or adjtotal > 4400:
+                            count = 0
+                            total = 0
+                    if diff == "boss":
+                        end = 1
+                if level == 2:
+                    if diff == "easy":  
+                        if adjtotal >= 1400 and adjtotal <= 3000:
+                            end = 1
+                        if adjtotal < 1400 or adjtotal > 3000:
+                            count = 0
+                            total = 0
+                    if diff == "medium":
+                        if adjtotal >= 3000 and adjtotal <= 4400:
+                            end = 1
+                        if adjtotal < 3000 or adjtotal > 4400:
+                            count = 0
+                            total = 0
+                    if diff == "hard":
+                        if adjtotal >= 4400 and adjtotal <= 6800:
+                            end = 1
+                        if adjtotal < 4400 or adjtotal > 6800:
+                            count = 0
+                            total = 0
+                if level == 3:
+                    if diff == "easy":  
+                        if adjtotal >= 2200 and adjtotal <= 4400:
+                            end = 1
+                        if adjtotal < 2200 or adjtotal > 4400:
+                            count = 0
+                            total = 0
+                    if diff == "medium":
+                        if adjtotal >= 4400 and adjtotal <= 6400:
+                            end = 1
+                        if adjtotal < 4400 or adjtotal > 6400:
+                            count = 0
+                            total = 0
+                    if diff == "hard":
+                        if adjtotal >= 6400 and adjtotal <= 9600:
+                            end = 1
+                        if adjtotal < 6400 or adjtotal > 9600:
+                            count = 0
+                            total = 0
+                if level == 4:
+                    if diff == "easy":  
+                        if adjtotal >= 2400 and adjtotal <= 4800:
+                            end = 1
+                        if adjtotal < 2400 or adjtotal > 4800:
+                            count = 0
+                            total = 0
+                    if diff == "medium":
+                        if adjtotal >= 4800 and adjtotal <= 7600:
+                            end = 1
+                        if adjtotal < 4800 or adjtotal > 7600:
+                            count = 0
+                            total = 0
+                    if diff == "hard":
+                        if adjtotal >= 7600 and adjtotal <= 11200:
+                            end = 1
+                        if adjtotal < 7600 or adjtotal > 11200:
+                            count = 0
+                            total = 0
+                
+            
+            #print (adjtotal)
+
+    if function == 9:
+        dt = 0
+        dnum = input("How many die would you like to roll?\n")
+        dtype = input("What sized die are you rolling?\n")
+        count = 0
+        while dnum > count:
+            t = random.randint(1, dtype)
+            dt = t + dt
+            #print(t)
+            count = count + 1
+        print()
+        print(dt)
+
+
+
+
+
+
+
+                
+                
+        
